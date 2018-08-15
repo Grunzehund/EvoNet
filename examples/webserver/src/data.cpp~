@@ -1,0 +1,62 @@
+
+#include "allinc.h"
+
+Data* Data::chain_first = NULL;
+Data* Data::chain_last = NULL;
+
+Data::Data()
+{
+	chain_prev = chain_last;
+	if (chain_last)
+		chain_last->chain_next = this;
+	else
+		chain_first = this;
+	chain_last = this;
+}
+Data::~Data()
+{
+	if (chain_next)
+		chain_next->chain_prev = chain_prev;
+	else
+		chain_last = chain_prev;
+
+	if (chain_prev)
+		chain_prev->chain_next = chain_next;
+	else
+		chain_first = chain_next;
+
+}
+
+void Data::Load(char* filename, int dirlen)
+{
+	int f;
+	struct stat sb;
+
+	f = open(filename, O_RDONLY);
+	if (f < 0)
+	{
+		printf("Could not open '%s'\n", filename);
+		exit(1);
+	}
+
+	fstat(f, &sb);
+	data = new char[sb.st_size];
+
+	read(f, data, sb.st_size);
+	data_len = sb.st_size;
+
+	printf("loaded file '%s'\n", filename);
+
+	close(f);
+
+	real_path = new char[strlen(filename) + 1];
+	memcpy(real_path, filename, strlen(filename));
+	real_path[strlen(filename)] = 0;
+
+	path = new char[strlen(filename) - dirlen + 1];
+	memcpy(path, &filename[dirlen], strlen(filename) - dirlen);
+	path[strlen(filename) - dirlen] = 0;
+
+	//printf("[%p][%p] data has size %lu, is located at %s and can be called with $(IP)%s\n", this, data, sb.st_size + 1, real_path, path);
+	//printf("it contains '%s'\n\n\n", data);
+}

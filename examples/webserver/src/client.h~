@@ -1,0 +1,9 @@
+#ifndef __CLIENT_H
+#define __CLIENT_H
+
+struct Client
+{
+	int handle;
+};
+
+#endif

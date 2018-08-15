@@ -1,0 +1,28 @@
+Kilian
+- Networking
+- Interface
+  --> Simulationsanzeige
+  --> Server Statusanzeige
+  --> Configdatei
+  --> Simulationsdaten setzen
+  --> Kommandos
+  --> Multithreading
+  --> Brain anzeigen
+  --> Kreaturen Erstellen
+  --> Kreaturen verändern / löschen
+  --> Map bewegen / Zoomen
+
+Jannik
+- Matrix + Vektor Klasse
+- Neuronales Netz
+- Brain Klasse
+- Creature Klasse
+- Noise Generator
+- Map Klasse
+- Netzwerk implementieren
+- Simulation Implementieren
+- Multithreading
+- Vulkan / OpenCL
+
+
+==> und alles am besten bis gestern!!!!!!!!!!!!!!!!!!!!!!!!
