@@ -1,0 +1,24 @@
+#ifndef __DEBUG_LEVEL_H
+#define __DEBUG_LEVEL_H
+
+#define DEBUG_MAP
+
+#ifdef DEBUG_ALL
+#define DEBUG_NOISEMAP
+#define DEBUG_MAP
+#define DEBUG_CREATURE
+#define DEBUG_NETWORK
+#define DEBUG_RENDERER
+#define DEBUG_THREADS
+#define DEBUG_VULKAN
+#endif
+
+#ifdef DEBUG_MAP
+#define DEBUG_LOADSAVE
+#define DEBUG_STRUCTORS
+#define DEBUG_SAVE_MODE
+#define DEBUG_MAP_INITIALISATION
+#define DEBUG_MAP_CREATION
+#endif
+
+#endif //__DEBUG_LEVEL_H
